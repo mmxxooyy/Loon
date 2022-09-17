@@ -1,5 +1,9 @@
-#!name= Bilibili 去广告
-#!icon= https://raw.githubusercontent.com/Tartarus2014/For-own-use/master/Color/Bilibili.png
+#!name=Bilibili
+#!desc=哔哩哔哩港澳台番剧自动切换地区、自定义Tab 及去广告
+#!author=mmxxooyy
+#!homepage=https://github.com/mmxxooyy/Loon/tree/main
+#!icon=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/bilibili_3.png
+
 
 [Rule]
 # 去广告
@@ -25,23 +29,23 @@ URL-REGEX,^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.comic\/flash,REJE
  
 [Script]
 # 自动切换地区
-http-response ^https:\/\/ap(p|i)\.bili(bili|api)\.(com|net)\/(pgc\/view\/v\d\/app\/season|x\/v\d\/search\/defaultwords)\?access_key script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Bili_Auto_Regions.js, requires-body=true, tag=Bilibili Region
+http-response ^https:\/\/ap(p|i)\.bili(bili|api)\.(com|net)\/(pgc\/view\/v\d\/app\/season|x\/v\d\/search\/defaultwords)\?access_key script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Bili_Auto_Regions.js, requires-body=true, tag=Region
 # 适用于搜索指定地区的番剧
-http-request ^https:\/\/ap(p|i)\.bili(bili|api)\.(com|net)\/x\/v\d\/search(\/type)?\?.+?%20(%E6%B8%AF|%E5%8F%B0|%E4%B8%AD)& script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Bili_Auto_Regions.js, tag=Bilibili Search
+http-request ^https:\/\/ap(p|i)\.bili(bili|api)\.(com|net)\/x\/v\d\/search(\/type)?\?.+?%20(%E6%B8%AF|%E5%8F%B0|%E4%B8%AD)& script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Bili_Auto_Regions.js, tag=Search
 
 # 整体栏的布局修改(包括“首页”右上角、底部 Tab 等)
-http-response ^https://app\.bilibili\.com/x/resource/show/tab(/v2)?\?access_key script-path=https://raw.githubusercontent.com/mmxxooyy/Surge/main/Script/bilibili_tab.js, requires-body=true, tag=Bilibili Tab
+http-response ^https://app\.bilibili\.com/x/resource/show/tab(/v2)?\?access_key script-path=https://raw.githubusercontent.com/mmxxooyy/Surge/main/Script/bilibili_tab.js, requires-body=true, tag=Tab
 # 精简“我的”（个人中心）
-http-response https://app.bilibili.com/x/v2/account/mine\?access_key script-path=https://raw.githubusercontent.com/mmxxooyy/Surge/main/Script/bilibili_mine.js, requires-body=true, tag=Bilibili Mine
+http-response https://app.bilibili.com/x/v2/account/mine\?access_key script-path=https://raw.githubusercontent.com/mmxxooyy/Surge/main/Script/bilibili_mine.js, requires-body=true, tag=Mine
 
 # 去“首页”推荐广告
-http-response ^https://app\.bilibili\.com/x/v2/feed/index\?access_key script-path=https://raw.githubusercontent.com/yjqiang/surge_scripts/main/scripts/bilibili/bilibili_feed.js, requires-body=true, tag=Bilibili Feed
+http-response ^https://app\.bilibili\.com/x/v2/feed/index\?access_key script-path=https://raw.githubusercontent.com/yjqiang/surge_scripts/main/scripts/bilibili/bilibili_feed.js, requires-body=true, tag=Feed
 # 去开屏广告
-http-response ^https?:\/\/app\.bilibili\.com\/x\/v2\/splash\/list script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/bilibili/bilibili_plus.js, requires-body=true, tag=BiliBili Splash
+http-response ^https?:\/\/app\.bilibili\.com\/x\/v2\/splash\/list script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/bilibili/bilibili_plus.js, requires-body=true, tag=Splash
 # 动态广告
-http-response ^https://app\.bilibili\.com/bilibili\.app\.dynamic\.v2\.Dynamic/DynAll$ script-path=https://raw.githubusercontent.com/yjqiang/surge_scripts/main/scripts/bilibili/bilibili_dynamic.js, requires-body=true, tag=Bilibili Dynamic
+http-response ^https://app\.bilibili\.com/bilibili\.app\.dynamic\.v2\.Dynamic/DynAll$ script-path=https://raw.githubusercontent.com/yjqiang/surge_scripts/main/scripts/bilibili/bilibili_dynamic.js, requires-body=true, tag=Dynamic
 # 去直播广告
-http-response ^https?:\/\/api\.live\.bilibili\.com\/xlive\/app-room\/v1\/index\/getInfoByRoom script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/bilibili/bilibili_plus.js, requires-body=true, tag=BiliBili Live
+http-response ^https?:\/\/api\.live\.bilibili\.com\/xlive\/app-room\/v1\/index\/getInfoByRoom script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/bilibili/bilibili_plus.js, requires-body=true, tag=Live
  
 [Mitm]
 hostname = ap?.bili*i.com, ap?.bili*i.net, api.live.bilibili.com, api.vc.bilibili.com
