@@ -4,6 +4,8 @@
 #!homepage=https://github.com/mmxxooyy/Loon/tree/main
 #!icon=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/bilibili_3.png
 
+[Mitm]
+hostname = ap?.bili*i.com, ap?.bili*i.net, api.live.bilibili.com, api.vc.bilibili.com
 
 [Rule]
 # 去广告
@@ -46,6 +48,3 @@ http-response ^https?:\/\/app\.bilibili\.com\/x\/v2\/splash\/list script-path=ht
 http-response ^https://app\.bilibili\.com/bilibili\.app\.dynamic\.v2\.Dynamic/DynAll$ script-path=https://raw.githubusercontent.com/yjqiang/surge_scripts/main/scripts/bilibili/bilibili_dynamic.js, requires-body=true, tag=Dynamic
 # 去直播广告
 http-response ^https?:\/\/api\.live\.bilibili\.com\/xlive\/app-room\/v1\/index\/getInfoByRoom script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/bilibili/bilibili_plus.js, requires-body=true, tag=Live
- 
-[Mitm]
-hostname = ap?.bili*i.com, ap?.bili*i.net, api.live.bilibili.com, api.vc.bilibili.com
